@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Blog</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+        <h1>blog name</h1>
+        
+        <div class='posts'>
+            @foreach ($posts as $post)
+            <div classs='post'>
+              <h2 class='title'>{{ $post->title }}</h2>
+              <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h3>
+              <p class='body'>{{ $post->body }}</p>
+            </div>
+            @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
+    </body>
+</html>
