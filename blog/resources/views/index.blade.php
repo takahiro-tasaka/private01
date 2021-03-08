@@ -10,7 +10,12 @@
         
     </head>
     <body>
-        <h1>Blog name</h1>
+      <h1>Blog name</h1>
+      <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+        @csrf
+        @method('DELETE')
+        <button type="submit">delete</button> 
+      </form>
         <p class='create'>[<a href='/posts/create'>create</a>]</p>
         <div class='posts'>
             @foreach ($posts as $post)
